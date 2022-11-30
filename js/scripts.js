@@ -1,9 +1,8 @@
 
 window.onload = function(){
+
     const items = {...localStorage}; //local storage data
     let localStorageArrayKeys = Object.keys(items);
-    
-    
     
     for (let i=0; i<localStorageArrayKeys.length; i++) {
         document.querySelector('.tasks-group').innerHTML +=`
@@ -15,6 +14,13 @@ window.onload = function(){
         </div>
         `;
     }
+
+    var current_tasks = document.querySelectorAll(".delete"); 
+    for (let i=0; i<current_tasks.length; i++){
+       current_tasks[i].onclick = function() {
+           this.parentNode.remove();
+       }
+   }
     
     
     
