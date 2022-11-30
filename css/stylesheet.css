@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    
+    background-color: skyblue;
+    width: 20%;
+    margin: auto ;
+    margin-top: 10%;
+    font-size: 1.3em;
+}
+
+.container {
+    padding: 10px;
+    border-style:solid;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    display: flex 1;
+
+    
+}
+
+
+#newtask{
+    position: relative;
+    padding: 20px;
+    
+}
+
+.input-box {
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.add {
+    background-color: skyblue;
+    padding: 1px;
+    border-radius: 5px;
+    width: 20%;
+    
+}
+
+.delete {
+    background-color: pink;
+    padding: 1px;
+    border-radius: 5px;
+    width: 8%;
+    
+}
+
+.delete:active {
+    background-color: red;
+}
+.delete:hover {
+    transform: translateY(-2px);
+}
+.add:hover {
+    transform: translateY(-2px)
+}
+
+.add:active {
+    background-color: white;
+}
+
+.mystyle {
+    text-decoration: line-through;
+   
+}
