@@ -50,22 +50,7 @@ window.onload = function(){
         }
             }
         }   
-    //         var current_tasks = document.querySelectorAll(".delete"); 
-    //     for (let i=0; i<current_tasks.length; i++){
-    //        current_tasks[i].onclick = function() {
-    //            this.parentNode.remove();
-    //            console.log('.delete')
-             
-    //        }
-    //    }
 
-
-
-
-       
-
-
-    
         function myFunction() {
             var element = document.getElementById("tasks");
             element.classList.toggle("mystyle");
@@ -84,10 +69,19 @@ window.onload = function(){
     }
     
     document.addEventListener('click', function (event) {
+ var current_tasks = document.querySelectorAll(".delete"); 
+ for (let i=0; i<current_tasks.length; i++){
+    current_tasks[i].onclick = function() {
+        this.parentNode.remove();
+    }
+    
+ }        
         // If the clicked element doesn't have the right selector, bail
-        if (!event.target.matches('.delete')) return;
+        if (!event.target.matches('.delete')) 
+            return;
         // Don't follow the link
         event.preventDefault();
+        
         // Log the clicked element in the console
         console.log(event.target);
     }, false);
