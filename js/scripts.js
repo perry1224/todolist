@@ -1,9 +1,11 @@
 
 window.onload = function(){
 
+
     const items = {...localStorage}; //local storage data
     let localStorageArrayKeys = Object.keys(items);
     
+    //loop the local storage and output it when refreshed
     for (let i=0; i<localStorageArrayKeys.length; i++) {
         document.querySelector('.tasks-group').innerHTML +=`
         <div class="task">
@@ -15,10 +17,22 @@ window.onload = function(){
         `;
     }
 
-   
-        
+    // let deleteButton = document.querySelectorAll(".delete");
+    // console.log(deleteButton);
+    // for (let i = 0; i < deleteButton.length; i++) {
+    //     deleteButton[i].onclick = function() {
+    //         let deletedElement = deleteButton[i].previousElementSibling.textContent.trim();
+    //         console.log(deletedElement);
+    //         localStorage.removeItem(deletedElement);
+    //         this.parentNode.remove();
+    //     }
+    // }
+
+
+
+
     
-    // console.log(items);
+    // adds tasks
     let getData = [];
     document.querySelector('.add').onclick = function() {
         if(document.querySelector('#newtask input').value.length == 0) {
@@ -34,8 +48,20 @@ window.onload = function(){
             `;
         getData.push(document.querySelector('#newtask input').value);
         console.log(getData)
+
+        for (let i=0; i < getData.length; i++) {
+            localStorage.setItem(getData[i], i);
+        }
+
+
     
-    
+        // getData.value=localStorage.getItem("memos")
+    //removes tasks
+    // getData.addEventListener("remove", event => {
+    //     localStorage.setItem("memos", event.target.value)
+    // })
+
+    //toggle strike through tasks
         let mystyle = document.querySelectorAll(".taskname");
         for (let i=0; i<mystyle.length; i++) {
             mystyle[i].addEventListener("dblclick", function() {
@@ -44,18 +70,15 @@ window.onload = function(){
         }
     
     
-        for (let i=0; i < getData.length; i++) {
-            localStorage.setItem(getData[i], i);
-            
-        }
-            }
+             }
         }   
 
-        function myFunction() {
-            var element = document.getElementById("tasks");
-            element.classList.toggle("mystyle");
-        }
+        // function myFunction() {
+        //     var element = document.getElementById("tasks");
+        //     element.classList.toggle("mystyle");
+        // }
     
+        //drags tasks and reposition up and down
      Sortable.create(list1, {
         animation: 120,
         draggable: '.task',
@@ -67,23 +90,26 @@ window.onload = function(){
     
       
     }
+
+
+
     
     document.addEventListener('click', function (event) {
  var current_tasks = document.querySelectorAll(".delete"); 
  for (let i=0; i<current_tasks.length; i++){
     current_tasks[i].onclick = function() {
+        let deletedElement = current_tasks[i].previousElementSibling.textContent.trim();
+        console.log(deletedElement);
+        localStorage.removeItem(deletedElement);
         this.parentNode.remove();
     }
     
  }        
-        // If the clicked element doesn't have the right selector, bail
         if (!event.target.matches('.delete')) 
             return;
-        // Don't follow the link
         event.preventDefault();
         
-        // Log the clicked element in the console
-        console.log(event.target);
+      
     }, false);
     
     
