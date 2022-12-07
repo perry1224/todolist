@@ -17,6 +17,14 @@ window.onload = function(){
         `;
     }
 
+          let mystyle = document.querySelectorAll(".taskname");
+          console.log(mystyle);
+        for (let i=0; i<mystyle.length; i++) {
+            mystyle[i].addEventListener("dblclick", function() {
+                this.classList.toggle("mystyle");
+            } )
+        }
+
     // let deleteButton = document.querySelectorAll(".delete");
     // console.log(deleteButton);
     // for (let i = 0; i < deleteButton.length; i++) {
@@ -46,6 +54,17 @@ window.onload = function(){
                 X </button>
             </div>
             `;
+            
+        let strikeThroughAfterAdd = document.querySelectorAll(".taskname");
+        console.log(strikeThroughAfterAdd);
+        for (let i = 0; i < strikeThroughAfterAdd.length; i++) {
+            strikeThroughAfterAdd[i].addEventListener("dblclick", function() {
+                this.classList.toggle("mystyle");
+            })
+        }
+
+
+        console.log(mystyle);
         getData.push(document.querySelector('#newtask input').value);
         console.log(getData)
 
@@ -62,16 +81,17 @@ window.onload = function(){
     // })
 
     //toggle strike through tasks
-        let mystyle = document.querySelectorAll(".taskname");
-        for (let i=0; i<mystyle.length; i++) {
-            mystyle[i].addEventListener("dblclick", function() {
-                this.classList.toggle("mystyle");
-            } )
-        }
+        // let mystyle = document.querySelectorAll(".taskname");
+        // for (let i=0; i<mystyle.length; i++) {
+        //     mystyle[i].addEventListener("dblclick", function() {
+        //         this.classList.toggle("mystyle");
+        //     } )
+        // }
     
     
              }
-        }   
+        }
+        
 
         // function myFunction() {
         //     var element = document.getElementById("tasks");
@@ -111,6 +131,7 @@ window.onload = function(){
       
     }, false);
     */
+  
 
     function temp(e){
         e.parentNode.remove();
