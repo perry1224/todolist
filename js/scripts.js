@@ -11,7 +11,7 @@ window.onload = function(){
         <div class="task">
             <span class="taskname"> 
             ${localStorageArrayKeys[i]}</span>
-            <button class="delete">
+            <button class="delete" onclick="temp(this)">
             X </button>
         </div>
         `;
@@ -42,7 +42,7 @@ window.onload = function(){
             <div class="task">
                 <span class="taskname"> 
                 ${document.querySelector('#newtask input').value}</span>
-                <button class="delete">
+                <button class="delete" id=moretasks onclick="temp(this)">
                 X </button>
             </div>
             `;
@@ -92,9 +92,8 @@ window.onload = function(){
     }
 
 
-
-    
-    document.addEventListener('click', function (event) {
+   
+    /*document.addEventListener('click', function (event) {
  var current_tasks = document.querySelectorAll(".delete"); 
  for (let i=0; i<current_tasks.length; i++){
     current_tasks[i].onclick = function() {
@@ -111,5 +110,11 @@ window.onload = function(){
         
       
     }, false);
-    
+    */
+
+    function temp(e){
+        e.parentNode.remove();
+       let memory= e.previousElementSibling.textContent.trim();
+       localStorage.removeItem(memory);
+  }      
     
